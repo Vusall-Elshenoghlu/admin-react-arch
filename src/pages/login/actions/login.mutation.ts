@@ -14,6 +14,7 @@ export const useLogin = () => {
             return login(credentials);
         },
         onSuccess: (response) => {
+            console.log(response);
             const {accessToken, refreshToken, user} = response;
             setTokens(accessToken, refreshToken);
             store.dispatch(setUser(user));

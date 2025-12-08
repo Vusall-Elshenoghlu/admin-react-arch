@@ -61,8 +61,8 @@ const LoginComponent = () => {
                             layout='vertical'
                         >
                                     <Form.Item
-                                        rules={rules.email}
-                                        name='email'
+                                        // rules={rules.email}
+                                        name='EmailOrUserName'
                                         label='Email'>
                                         <Input/>
                                     </Form.Item>
