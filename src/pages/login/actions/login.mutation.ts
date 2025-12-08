@@ -1,0 +1,23 @@
+import {useMutation} from 'react-query';
+import {login} from './login.service';
+import {store} from 'store/store.config';
+import {setUser} from 'store/store.reducer';
+import {setTokens} from 'core/helpers/get-token';
+import {useNavigate} from 'react-router-dom';
+import {Routes} from 'router/routes';
+import {ILoginFormValues} from '../login';
+
+export const useLogin = () => {
+    const navigate = useNavigate();
+    return useMutation({
+        mutationFn: (credentials: ILoginFormValues) => {
+            return login(credentials);
+        },
+        onSuccess: (response) => {
+            const {accessToken, refreshToken, user} = response;
+            setTokens(accessToken, refreshToken);
+            store.dispatch(setUser(user));
+            navigate(Routes.home);
+        },
+    });
+};
