@@ -28,9 +28,7 @@ const HeaderRightComponent = () => {
 
     return (
         <ul className={classes.items}>
-            <li className={classes.avatar}>
-                <img src={avatar} alt='avatar'/>
-            </li>
+
             <li className={classes.logout} onClick={handleLogout}>
                 <LogoutIcon/>
             </li>

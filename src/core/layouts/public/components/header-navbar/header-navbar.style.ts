@@ -8,6 +8,7 @@ const styles = {
     },
     left: {
         display: 'flex',
+        marginLeft: rem(-9),
         alignItems: 'center',
         '& img': {
             display: 'block',

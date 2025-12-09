@@ -1,5 +1,5 @@
 import HeaderRightComponent from '../header-right/header-right.component';
-import adminLogo from 'assets/images/statics/sima-negative.svg';
+import adminLogo from 'assets/images/statics/simaaaaa.svg';
 import {useHeaderNavbarStyles} from './header-navbar.style';
 import {NavLink} from 'react-router-dom';
 import {Routes} from 'router/routes';

@@ -1,0 +1,30 @@
+<svg width="480" height="120" viewBox="0 0 480 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+    <!-- Background -->
+    <rect width="480" height="120" fill="#0E1726"/>
+
+    <!-- Creative A icon -->
+    <path d="M60 95C57 95 54 70 54 70C54 70 75 25 102 25C129 25 150 70 150 70C150 70 147 95 144 95C141 95 134 67 134 67C134 67 115 34 102 34C89 34 71 67 71 67C71 67 69 95 65 95Z"
+          fill="white"/>
+
+    <!-- Dot -->
+    <circle cx="155" cy="30" r="8" fill="white"/>
+
+    <!-- ADMIN letters -->
+
+    <!-- A -->
+    <path d="M190 92L207 28H224L240 92H225L222 80H205L202 92H190ZM209 69H219L214 46L209 69Z" fill="white"/>
+
+    <!-- D -->
+    <path d="M252 92V28H272C282 28 291 32 297 39C303 46 306 55 306 65C306 75 303 84 297 90C291 97 282 101 272 101H252V92ZM266 39V81H272C277 81 282 79 285 75C288 71 290 67 290 65C290 61 288 55 285 51C282 47 277 45 272 45H266Z" fill="white"/>
+
+    <!-- M -->
+    <path d="M318 92V28H334L346 55L358 28H374V92H360V56L348 78H345L332 56V92H318Z" fill="white"/>
+
+    <!-- I -->
+    <path d="M382 92V28H396V92H382Z" fill="white"/>
+
+    <!-- N -->
+    <path d="M412 92V28H426L450 63V28H464V92H449L426 57V92H412Z" fill="white"/>
+
+</svg>
