@@ -22,12 +22,12 @@ const LeftMenuComponent = memo(({isOpen}: { isOpen: boolean }) => {
                 {
                     id: 1,
                     link: Routes.home,
-                    name: 'test',
+                    name: translate('home_title_dashboard'),
                 },
                 {
                     id: 2,
                     link: Routes.home,
-                    name: 'test2'
+                    name: translate('home_title_statistics'),
                 },
             ]
         },
@@ -36,12 +36,45 @@ const LeftMenuComponent = memo(({isOpen}: { isOpen: boolean }) => {
             name: translate('table_title'),
             link: Routes.table,
             icon: <HomeIcon/>,
-        }, {
+            submenu: [
+                {
+                    id: 1,
+                    link: Routes.home,
+                    name: translate('table_title_products'),
+                },
+                {
+                    id: 2,
+                    link: Routes.home,
+                    name: translate('table_title_orders'),
+                },
+            ]
+        },
+        {
             id: 3,
             name: translate('form_title'),
             link: Routes.form,
             icon: <HomeIcon/>,
-        }
+            submenu: [
+                {
+                    id: 1,
+                    link: Routes.home,
+                    name: translate('form_title_response'),
+                },
+            ]
+        },
+        {
+            id: 4,
+            name: translate('users_title'),
+            icon: <HomeIcon/>,
+            submenu: [
+                {
+                    id: 1,
+                    link: Routes.users,
+                    name: translate('users_title_list'),
+                },
+            ]
+        },
+
     ];
 
     const leftMenuClasses = classNames({

@@ -5,6 +5,7 @@ export enum Routes {
     table = '/table',
     form = '/form',
     login = '/auth/login',
+    users = '/users',
 }
 
 

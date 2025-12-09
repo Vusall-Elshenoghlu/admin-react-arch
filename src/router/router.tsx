@@ -8,6 +8,7 @@ import NotFound from 'pages/not-found/notfound.component';
 import AuthComponent from 'core/layouts/auth/auth.component';
 import LoginComponent from 'pages/login/login.component';
 import AuthProtectedComponent from './protected/auth-protected.component';
+import UsersComponent from "../pages/users/users.component";
 
 const router = createBrowserRouter([
     {
@@ -24,7 +25,12 @@ const router = createBrowserRouter([
             {
                 path: Routes.table,
                 element: <TableComponent/>,
-            }
+            },
+            {
+                path: Routes.users,
+                element: <UsersComponent/>,
+            },
+
         ],
     },
     {

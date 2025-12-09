@@ -1,5 +1,5 @@
 export const API = {
-    login: '/Auth/login',
-    refresh: 'Auth/refresh',
+    login: 'Accounts/login',
+    refresh: 'Accounts/refresh-tokeny',
     posts: 'posts',
 };
