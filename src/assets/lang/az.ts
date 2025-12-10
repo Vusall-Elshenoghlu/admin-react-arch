@@ -10,6 +10,7 @@ export const az = {
     home_title_last_actions: 'Son fəaliyyətlər',
     users_title: 'İstifadəçilər',
     users_title_list: 'Siyahı',
+    users_title_add_user: 'Istifadeci elave et',
     blogs_title: 'Məqalələr ',
     blogs_title_all: 'Hamısı ',
     blogs_title_add_new: 'Yeni əlavə et ',

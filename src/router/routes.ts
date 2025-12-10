@@ -6,6 +6,11 @@ export enum Routes {
     form = '/form',
     login = '/auth/login',
     users = '/users',
+    statistics = '/statistics',
+    products = '/products',
+    orders = '/orders',
+    form_responses = '/form-responses',
+    add_user = '/add-user',
 }
 
 

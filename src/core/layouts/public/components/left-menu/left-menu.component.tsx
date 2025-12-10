@@ -26,7 +26,7 @@ const LeftMenuComponent = memo(({isOpen}: { isOpen: boolean }) => {
                 },
                 {
                     id: 2,
-                    link: Routes.home,
+                    link: Routes.statistics,
                     name: translate('home_title_statistics'),
                 },
             ]
@@ -39,12 +39,12 @@ const LeftMenuComponent = memo(({isOpen}: { isOpen: boolean }) => {
             submenu: [
                 {
                     id: 1,
-                    link: Routes.home,
+                    link: Routes.products,
                     name: translate('table_title_products'),
                 },
                 {
                     id: 2,
-                    link: Routes.home,
+                    link: Routes.orders,
                     name: translate('table_title_orders'),
                 },
             ]
@@ -57,7 +57,7 @@ const LeftMenuComponent = memo(({isOpen}: { isOpen: boolean }) => {
             submenu: [
                 {
                     id: 1,
-                    link: Routes.home,
+                    link: Routes.form_responses,
                     name: translate('form_title_response'),
                 },
             ]
@@ -72,6 +72,12 @@ const LeftMenuComponent = memo(({isOpen}: { isOpen: boolean }) => {
                     link: Routes.users,
                     name: translate('users_title_list'),
                 },
+                {
+                    id: 1,
+                    link: Routes.add_user,
+                    name: translate('users_title_add_user'),
+                },
+
             ]
         },
 
