@@ -15,6 +15,15 @@ const styles = {
             width: rem(100),
         }
     },
+    center: {
+        textAlign: 'center',
+        color: 'white',
+        fontSize: rem(14),
+        letterSpacing: '0.5px',
+        fontWeight: 500,
+        userSelect: 'none',
+    },
+
 };
 
 export const useHeaderNavbarStyles = createUseStyles(styles);
