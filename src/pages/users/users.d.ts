@@ -2,7 +2,9 @@ export interface IUser {
     id: number;
     firstName: string;
     lastName: string;
-    dob: string;
+    email?: string;
+    avatar?: string; // if no avatar, UI shows default AntD icon
+    dob?: string; // ISO format "YYYY-MM-DD"
 }
 
 export interface ICounts {

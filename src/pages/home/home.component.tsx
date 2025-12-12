@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {useAdminDashboardStyles} from "./home.style";
-import {ICounts, IUser} from "../users/users";
-import {mockParents, mockStudents, mockSubjects, mockTeachers} from "./actions/home.service";
+import { useAdminDashboardStyles } from "./home.style";
+import { ICounts, IUser } from "../users/users";
+import { mockParents, mockStudents, mockSubjects, mockTeachers } from "./actions/home.service";
 import {
     UserSwitchOutlined,
     TeamOutlined,
@@ -10,6 +10,7 @@ import {
     UserOutlined,
     BookOutlined
 } from "@ant-design/icons";
+
 const HomeComponent: React.FC = () => {
     const classes = useAdminDashboardStyles();
     const navigate = useNavigate();
@@ -36,10 +37,19 @@ const HomeComponent: React.FC = () => {
             director: 1,
         });
 
-        // Recent items
-        setRecentTeachers(mockTeachers.slice().sort((a, b)=> new Date(b.dob).getTime() - new Date(a.dob).getTime()).slice(0, 5));
-        setRecentParents(mockParents.slice().sort((a, b)=> new Date(b.dob).getTime() - new Date(a.dob).getTime()).slice(0, 5));
-        setRecentStudents(mockStudents.slice().sort((a, b)=> new Date(b.dob).getTime() - new Date(a.dob).getTime()).slice(0, 10));
+        // Recent items (sorted by DOB descending)
+        const sortByDobDesc = (users: IUser[]) =>
+            users
+                .slice()
+                .sort((a, b) => {
+                    const aTime = a.dob ? new Date(a.dob).getTime() : 0;
+                    const bTime = b.dob ? new Date(b.dob).getTime() : 0;
+                    return bTime - aTime;
+                });
+
+        setRecentTeachers(sortByDobDesc(mockTeachers).slice(0, 5));
+        setRecentParents(sortByDobDesc(mockParents).slice(0, 5));
+        setRecentStudents(sortByDobDesc(mockStudents).slice(0, 10));
     }, []);
 
     const cards = [
@@ -50,8 +60,9 @@ const HomeComponent: React.FC = () => {
         { title: "Fənlər", key: "subjects", icon: <BookOutlined style={{ fontSize: 50 }} />, path: "subjects" },
     ];
 
-    const formatDate = (dateStr: string) =>
-        new Date(dateStr).toLocaleDateString("az-AZ", { day: "2-digit", month: "long", year: "numeric" });
+    // Format DOB safely
+    const formatDate = (dateStr?: string) =>
+        dateStr ? new Date(dateStr).toLocaleDateString("az-AZ", { day: "2-digit", month: "long", year: "numeric" }) : "-";
 
     return (
         <div className={classes.root}>

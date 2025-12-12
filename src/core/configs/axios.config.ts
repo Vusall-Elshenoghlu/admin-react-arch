@@ -14,28 +14,7 @@ axiosInstance.interceptors.request.use(
     async (config: InternalAxiosRequestConfig) => {
         let token: string | null = getAccessToken();
 
-        // Əgər access token yoxdursa, refresh et
-        if (!token) {
-            const refreshToken = getRefreshToken();
-            if (refreshToken) {
-                try {
-                    const res = await axios.post(`${environment.apiMain}/${API.refresh}`, {
-                        refreshToken,
-                    });
 
-                    const { accessToken, refreshToken: newRefreshToken } = res.data;
-
-                    // Tokenləri yadda saxla
-                    setTokens(accessToken, newRefreshToken);
-
-                    token = accessToken; // ❗ artıq dəyişən var, error yoxdur
-                } catch (e) {
-                    localStorage.clear();
-                }
-            }
-        }
-
-        // Header-ə token yaz
         if (token) {
             config.headers.Authorization = `Bearer ${token}`;
         }
@@ -93,10 +72,11 @@ axiosInstance.interceptors.response.use(
             try{
                 const refreshToken = getRefreshToken();
                 const res = await axios.post(`${environment.apiMain}/${API.refresh}`, {
-                    refreshToken,
+                    accessToken: getAccessToken(),
+                    refreshToken: getRefreshToken(),
                 });
 
-                const { accessToken, refreshToken: newRefreshToken } = res.data;
+                const { token: accessToken, refreshToken: newRefreshToken } = res.data.data;
                 setTokens(accessToken, newRefreshToken);
 
                 axiosInstance.defaults.headers.Authorization = `Bearer ${accessToken}`;
