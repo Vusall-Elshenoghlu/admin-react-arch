@@ -15,9 +15,10 @@ export const useLogin = () => {
         },
         onSuccess: (response) => {
             console.log(response);
-            const {accessToken, refreshToken, user} = response;
-            setTokens(accessToken, refreshToken);
-            store.dispatch(setUser(user));
+            const {data} = response;
+            console.log(data);
+            setTokens(data.token, data.refreshtoken);
+            store.dispatch(setUser(data.user));
             navigate(Routes.home);
         },
     });

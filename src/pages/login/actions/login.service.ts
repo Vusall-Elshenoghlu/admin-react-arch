@@ -4,7 +4,7 @@ import {ILoginFormValues} from '../login';
 
 export const login = (credentials: ILoginFormValues) => {
     return axiosInstance.post(API.login, {
-        EmailOrUserName: credentials.EmailOrUserName,
+        email: credentials.email,
         password: credentials.password
     }).then(res => res.data);
 };

@@ -11,17 +11,44 @@ const axiosInstance = axios.create({
 
 });
 axiosInstance.interceptors.request.use(
-    (config: InternalAxiosRequestConfig) => {
-        const token = getAccessToken();
+    async (config: InternalAxiosRequestConfig) => {
+        let token: string | null = getAccessToken();
+
+        // Əgər access token yoxdursa, refresh et
+        if (!token) {
+            const refreshToken = getRefreshToken();
+            if (refreshToken) {
+                try {
+                    const res = await axios.post(`${environment.apiMain}/${API.refresh}`, {
+                        refreshToken,
+                    });
+
+                    const { accessToken, refreshToken: newRefreshToken } = res.data;
+
+                    // Tokenləri yadda saxla
+                    setTokens(accessToken, newRefreshToken);
+
+                    token = accessToken; // ❗ artıq dəyişən var, error yoxdur
+                } catch (e) {
+                    localStorage.clear();
+                }
+            }
+        }
+
+        // Header-ə token yaz
         if (token) {
             config.headers.Authorization = `Bearer ${token}`;
         }
+
         store.dispatch(setLoader(true));
         return config;
-    }, (error) => {
+    },
+    (error) => {
         store.dispatch(setLoader(true));
         return Promise.reject(error);
-    });
+    }
+);
+
 
 
 let isRefreshing = false;

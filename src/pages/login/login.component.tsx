@@ -12,7 +12,7 @@ const LoginComponent = () => {
 
     const {title, page, panel, subtitle} = useLoginStyles();
     const initialValues: ILoginFormValues = {
-        EmailOrUserName: '',
+        email: '',
         password: '',
     };
     const rules: {[key: string]: FormRule[]} = useMemo(() => ({
@@ -62,7 +62,7 @@ const LoginComponent = () => {
                         >
                                     <Form.Item
                                         // rules={rules.email}
-                                        name='EmailOrUserName'
+                                        name='email'
                                         label='Email'>
                                         <Input/>
                                     </Form.Item>
